@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Suspense} from "react";
 import {
     RouterProvider,
     Route,
@@ -7,8 +7,9 @@ import {
 } from "react-router-dom";
 
 import Header from "./layout/Header";
-import Main from "./pages/Main";
-import Todos from "./pages/Todos";
+import Main from "./pages/Main/index";
+import Todos from "./pages/Todos/index";
+import Fallback from "./components/Fallback";
 
 function App() {
     const router = createBrowserRouter(createRoutesFromElements(
@@ -18,7 +19,7 @@ function App() {
                 element={<Header />}
             >
                 <Route index element={<Main />} />
-                <Route path={"todos"} element={<Todos />} />
+                <Route path={"todos"} element={<Todos />}  />
                 <Route path={"*"} element={<Main />} />
             </Route>
         </>
@@ -26,7 +27,9 @@ function App() {
 
     return (
         <>
-            <RouterProvider router={router}/>
+            <Suspense fallback={<Fallback />}>
+                <RouterProvider router={router}/>
+            </Suspense>
         </>
     )
 }

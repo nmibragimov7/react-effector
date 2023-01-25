@@ -2,7 +2,6 @@ import React from 'react';
 
 const Main = () => {
 
-
     return (
         <>
             <ul className={"max-w-5xl mx-auto"}>

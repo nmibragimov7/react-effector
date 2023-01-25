@@ -1,13 +1,13 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {useStore} from "effector-react";
 
-import TodoItem from "../components/TodoItem";
-import BaseInput from "../components/base/BaseInput/BaseInput";
-import useInput from "../core/hooks/useInput";
-import {getTodosFx} from "../store/effects";
-import {$input, $todos, $todosStore} from "../store";
-import {Todo} from "../store/types";
-import BaseSpinner from "../components/base/BaseSpinner/BaseSpinner";
+import TodoItem from "../../components/TodoItem";
+import BaseInput from "../../components/base/BaseInput/BaseInput";
+import useInput from "../../core/hooks/useInput";
+import {getTodosFx} from "../../store/effects";
+import {$input, $todos, $todosStore} from "../../store";
+import {Todo} from "../../store/types";
+import BaseSpinner from "../../components/base/BaseSpinner/BaseSpinner";
 
 const Todos = () => {
     const [filtered, setFiltered] = useState<Todo[]>([]);
